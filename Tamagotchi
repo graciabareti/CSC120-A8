@@ -1,0 +1,121 @@
+import java.util.ArrayList;
+
+public class Tamagotchi {
+
+    //Attributes
+    public String name;//creates private and use accessors and manipulators
+    public String color;
+    private int age;
+    private int locationX;
+    private int locationY;
+    private ArrayList <String> inventory;
+    private ArrayList <String> powerUp;
+
+    //Constructor
+    public Tamagotchi (String name,String color) {
+        this.name= name;
+        this.color= color;
+        this.age=1;
+        this.locationX=0;
+        this.locationY=0;
+    }
+
+    //Acessors & Manipulators
+    /* Sets name
+     * @param name 2 tamagotchi
+     */
+    public void setName(String name2){
+        this.name = name2;
+    }
+
+    //Methods
+
+    /* Grabs item from the inventory
+     * @param item 
+     */
+    public void grab(String item){
+        System.out.println("You grabbed"+ item + "it is being added to your inventory");
+        inventory.add(item);
+    }
+    /* Removes item from inventory
+     * @param item The item
+     * @return item The item being dropped
+     */
+    public String drop(String item){
+        inventory.remove(item);
+        return(item);
+    }
+    /* Examines whether an item is a power up, then tamagotchi grabs item
+     * otherwise they will drop it.
+     * @param item The item they want to examine
+     */
+    public void examine(String item){
+        if(powerUp.contains(item)== true){
+            grab(item);
+            this.age +=10;
+        }
+        else{
+            drop(item);
+        }
+
+    }
+    /* Allows user things in their inventory
+     * @param item Item in question
+     */
+    public void use(String item){
+        if(inventory.contains(item)==true);
+            System.out.println(x:"You have unlocked a new achievement;) Do you want to use it?")
+    }
+
+    /*Provides tamagotchi walking abilities based on direction
+     * @param direction Direction desired for tamagotchi to walk
+     * @return Boolean, true signifying tamagotchi moved
+     */
+    public boolean walk(String direction){
+        direction.toLowerCase();
+        if(direction== "north");{ 
+            locationY +=1;
+            return(true);
+        }
+        if(direction=="south"){
+            locationY -=1;
+            return(true);
+        }
+        if(direction=="west"){
+            locationX -=1;
+            return(true);
+        }
+        if(direction=="east"){
+            locationY +=1;
+            return(true);
+        }
+        else{
+            System.out.println(x:"Give a valid direction");
+                return(false);
+        }
+    }
+    // public boolean fly(int x, int y){
+
+  //}
+    
+    public Number shrink(){
+    this.age -= 10;
+    System.out.println(x:"Your age has gone down by -10 pt");
+    return(false);
+    }
+
+    public Number grow(){
+    System.out.println(x: "Your age has gone up by +10 pt");
+    }
+
+    public void rest(){
+    System.out.println(x: "You are now resting!");
+    this.age += 20;
+
+    }
+  // public void undo(){
+
+ // }
+  // Main
+
+}
